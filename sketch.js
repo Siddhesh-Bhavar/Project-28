@@ -1,3 +1,4 @@
+
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -22,11 +23,12 @@ function preload(){
 function setup() {
   createCanvas(1200, 600);
   
- engine = Engine.create();
- world = engine.world;
+
+	engine = Engine.create();
+	world = engine.world;
 
   //Create the Bodies here.
-  tree= createSprite(880,300,500,500);
+ tree= createSprite(880,300,500,500);
   tree.addImage("trees",treeImg);
   tree.scale=0.4;
   
@@ -39,7 +41,7 @@ function setup() {
   boy.scale=0.1;
 
 	mango1=new Mango(900,220,50,50);
-        mango2=new Mango(850,180,60,60);
+  mango2=new Mango(850,180,60,60);
 	mango3=new Mango(920,100,60,60);
 	mango4=new Mango(1030,180,50,50);
 	mango5=new Mango(750,220,70,70);
@@ -47,7 +49,7 @@ function setup() {
 	mango7=new Mango(960,160,80,80);
 	mango8=new Mango(820,120,50,50);
 	mango9=new Mango(970,255,60,60);
-  	mango10=new Mango(1100,240,70,70);
+  mango10=new Mango(1100,240,70,70);
 
   
   
