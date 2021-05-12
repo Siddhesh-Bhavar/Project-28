@@ -1,4 +1,3 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -8,13 +7,15 @@ const Constraint=Matter.Constraint;
 
 var tree, stone,ground,boy;
 var mango1,mango2,mango3,mango4,mango5,mango6,mango7,mango8,mango9,mango10;
-
+var treeImg,boyImg;
 
 //Declare launcherObject and launchForce variable here
 var launcherObject;
 var launcherForce=100;
 
 function preload(){
+  treeImg= loadImage("tree.png");
+  boyImg= loadImage("boy.png");
 	
   }
 
@@ -26,10 +27,18 @@ function setup() {
 	world = engine.world;
 
   //Create the Bodies here.
-  tree=new Tree(900,300,500,500);
+  
+  tree= createSprite(700,300,500,500);
+  tree.addImage("trees",treeImg);
+  tree.scale=0.4;
+  
+
   ground=new Ground(600,548,1200,15);
-  stone=new Stone(110,400,20); 
-  boy= new Boy(200,450,250,250)
+  stone=new Stone(110,400,20);
+
+  boy= createSprite(165,450,250,250);
+  boy.addImage("boi",boyImg);
+  boy.scale=0.1;
 
 	mango1=new Mango(900,220,50,50);
   mango2=new Mango(850,180,60,60);
@@ -41,6 +50,8 @@ function setup() {
 	mango8=new Mango(820,120,50,50);
 	mango9=new Mango(970,255,60,60);
   mango10=new Mango(1100,240,70,70);
+
+  
   
   //create launcherObject here
   launcherObject=new Launcher(stone.body,{x:110,y:400});
@@ -55,12 +66,10 @@ function draw() {
   rectMode(CENTER);
   background("grey");
   
-  
-
-  tree.display();
   stone.display();
   ground.display();
   boy.display();
+  //tree.display();
 
   mango1.display();
   mango2.display();
@@ -73,8 +82,9 @@ function draw() {
   mango9.display();
   mango10.display();
   
+  
 // display launcher object here
-  launcherObject=new Launcher(stone.body,{x:235,y:420});
+  //launcherObject=new Launcher(stone.body,{x:235,y:420});
     
   detectollision(stone,mango1);
   detectollision(stone,mango2);
@@ -86,6 +96,7 @@ function draw() {
   detectollision(stone,mango8);
   detectollision(stone,mango9);
   detectollision(stone,mango10);
+  launcherObject.display()
 
   drawSprites();
   
